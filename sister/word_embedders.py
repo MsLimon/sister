@@ -14,6 +14,7 @@ def get_fasttext(lang: str = "en"):
             "en": "https://dl.fbaipublicfiles.com/fasttext/vectors-wiki/wiki.simple.zip",
             "ja": "https://dl.fbaipublicfiles.com/fasttext/vectors-wiki/wiki.ja.zip",
             "fr": "https://dl.fbaipublicfiles.com/fasttext/vectors-wiki/wiki.fr.zip",
+            "es": "https://dl.fbaipublicfiles.com/fasttext/vectors-wiki/wiki.es.zip",
             }
     path = download.cached_download(urls[lang])
     path = Path(path)
