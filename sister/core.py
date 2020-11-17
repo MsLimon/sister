@@ -51,8 +51,8 @@ class BertEmbedding:
             lang: str = 'en',
             ):
         try:
-            from transformers import BertJapaneseTokenizer, AlbertTokenizer, CamembertTokenizer
-            from transformers import AlbertModel, CamembertModel, BertModel
+            from transformers import BertJapaneseTokenizer, AlbertTokenizer, CamembertTokenizer, AutoTokenizer
+            from transformers import AlbertModel, CamembertModel, AutoModel
         except ImportError:
             msg = "importing bert dep failed."
             msg += "\n try to install sister by `pip install sister[bert]`."
@@ -64,6 +64,9 @@ class BertEmbedding:
         elif lang == "fr":
             tokenizer = CamembertTokenizer.from_pretrained("camembert-base")
             model = CamembertModel.from_pretrained("camembert-base")
+        elif lang == "es":
+            tokenizer = AutoTokenizer.from_pretrained("dccuchile/bert-base-spanish-wwm-uncased")
+            model = AutoModel.from_pretrained("dccuchile/bert-base-spanish-wwm-uncased")
         elif lang == "ja":
             tokenizer = BertJapaneseTokenizer.from_pretrained("cl-tohoku/bert-base-japanese-whole-word-masking")
             model = BertModel.from_pretrained("cl-tohoku/bert-base-japanese-whole-word-masking")
